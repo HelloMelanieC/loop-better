@@ -100,7 +100,7 @@ while (i < numbers.length) {
           </code></pre>
           </p>
           <aside class="notes" data-markdown>
-            - This is a traditional C-style `for` loop
+            - This is a traditional C-style `while` loop
             - This is JavaScript code... not the greatest JavaScript but it is syntactically valid
             - We set `i` to `0` and then we start looping
             - This `while` loop keeps on executing the same code over and over as long as the condition (`i &lt; numbers.length`) is true **🐭**
@@ -326,7 +326,7 @@ TypeError: 'set' object does not support indexing
             - If we try to manually loop this set using indexes, we'll get an error. **🐭**
             - Because **sets are not sequences**: they don't support indexing the same way lists do
             - We could try converting this to a list and then loop over it with indexes, but that would be cheating
-            - Plus that won't at all for infinitely long iterables
+            - Plus that won't work at all for infinitely long iterables
             - We *cannot* manually loop over every iterable by using indexes: it simply isn't possible sometimes
           </aside>
         </section>
@@ -405,6 +405,7 @@ StopIteration</span>
       <section>
 
         <section>
+          <!-- Could you start off this example defining a function like treys_fancy_for_loop? I feel like that would help me get it -->
           <h2>Looping manually: for real</h2>
           <aside class="notes" data-markdown>
             - Now that we've learned how to get iterators from iterables and how to use iterators to loop over iterables, let's try re-implementing a `for` loop using a `while` loop
@@ -486,6 +487,7 @@ unique_numbers = set(numbers)
             - We can test if something is an iterable by trying to loop over it
             - Anything you can loop over in a for loop is an iterable
             - And every iterable can be looped over with a for loop
+            <!-- You said in the recording this is too much review; it won't be if you preface it with, "Remember what we said earlier…" or somthing like that -->
           </aside>
         </section>
 
@@ -513,9 +515,9 @@ True
 False
           </code></pre>
           <aside class="notes" data-markdown>
-            - From Python's perspective, an iterable is anything you can pass to the built-in `iter` function **🐭*
+            - From Python's perspective, an iterable is anything you can pass to the built-in `iter` function **🐭**
             - If something is an iterable, you can get an iterator from it by passing it to the `iter` function
-            - **🐭* So we can test if something *is* an iterable by passing it to the `iter` function and *making sure* that we don't get an exception 
+            - **🐭** So we can test if something *is* an iterable by passing it to the `iter` function and *making sure* that we don't get an exception
             - Anything you can get an iterator from **is** an iterable
           </aside>
         </section>
@@ -733,6 +735,7 @@ TypeError: 'list_iterator' object is not subscriptable</span>
         </section>
 
         <section>
+          <!-- I would love another slide or two as a listener here. Like for these: "Generators are single-use iterables", "Iterators are single-use iterables", "generators are iterators" -->
           <h2>Exhausted</h2>
           <pre class="python"><code data-trim data-noescape>
 >>> numbers = [1, 2, 3, 5, 7]
@@ -762,11 +765,13 @@ TypeError: 'list_iterator' object is not subscriptable</span>
 [3, 5, 7]</span>
           </code></pre>
           <aside class="notes" data-markdown>
+            <!-- Iterators are like a Pez dispenser. When you eat two Pez out of Donald Duck's head, he remembers. Those two are gone, but you still have what's left. You're welcome ;) -->
             - TODO
           </aside>
         </section>
 
         <section>
+          <!-- OMG, the pez dispenser works so well. Donald, do you have an orange pez? "Yep, here. Eat it". Donald, do you have an orange pez? "No. You just ate it." -->
           <h3 class="fragment" data-fragment-index=5>Partially-Consumed</h3>
           <h2 class="fragment strike" data-fragment-index=5>Containment</h2>
           <pre class="python"><code data-trim data-noescape>
@@ -835,6 +840,7 @@ True</span>
         </section>
 
         <section>
+          <!-- This is very confusing, yes, but if is it illustrative of the danger of iterators? Is there some kind of caution that can be given here? Or an alternative to this situation? Because then it's useful. -->
           <h2>Partially-Consumed</h2>
           <pre class="python"><code data-trim data-noescape>
 >>> from itertools import takewhile
